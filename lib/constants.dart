@@ -24,6 +24,9 @@ const offerAns = "Professional refurbishers make offers based on your device's c
 //images name with definded path----
 const productLogo = "assets/images/brandmark-design.png";
 const brandLogo = "assets/images/brandmark-design-2.png";
+const faqAnswer = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
+          'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+          'Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.';
 
 const iphone = "assets/images/iphone.png";
 const ipad = "assets/images/ipad.jpeg";

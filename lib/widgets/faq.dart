@@ -1,68 +1,102 @@
+//---------------------------- check this oout ------------------------//
+import 'package:bybackproduct/constants.dart';
 import 'package:flutter/material.dart';
 
-class FAQPage extends StatefulWidget {
+class FAQAccordion extends StatefulWidget {
   @override
-  State<FAQPage> createState() => _FAQPageState();
+  _FAQAccordionState createState() => _FAQAccordionState();
 }
 
-class _FAQPageState extends State<FAQPage> {
-  final List<FAQItem> faqItems = [
-    FAQItem(
-      question: 'What is Flutter?',
-      answer: 'Flutter is an open-source UI software development toolkit created by Google. It is used for building natively compiled applications for mobile, web, and desktop from a single codebase.',
-    ),
-    FAQItem(
-      question: 'How do I install Flutter?',
-      answer: 'You can install Flutter by following the installation instructions provided in the official Flutter documentation. Flutter supports Windows, macOS, and Linux.',
-    ),
-    FAQItem(
-      question: 'Can I use Flutter for web development?',
-      answer: 'Yes, you can use Flutter for web development. Flutter includes web support, allowing you to build web applications using the same codebase as your mobile app.',
-    ),
-  ];
+class _FAQAccordionState extends State<FAQAccordion> {
+  List<Item> _data = generateItems(5);
+  int _expandedIndex = -1;
+
+  void toggleAccordion(int index) {
+    setState(() {
+      if (_expandedIndex == index) {
+        _expandedIndex = -1; // Collapse if already expanded
+      } else {
+        _expandedIndex = index; // Expand the selected item
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return FaqContainer(faqItems);
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      child: ListView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: _data.length,
+        itemBuilder: (context, index) {
+          final item = _data[index];
+          return Container(
+            margin: const EdgeInsets.only(bottom: 16.0),
+            child: ExpansionPanelList(
+              elevation: 1,
+              children: [
+                ExpansionPanel(
+                  headerBuilder: (BuildContext context, bool isExpanded) {
+                    return Container(
+                      child: ListTile(
+                        title: Text(
+                          item.headerText,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue, // Set the text color to blue
+                            fontSize: 18.0, // Set the font size
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                  body: Container(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      item.bodyText,
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                      ),
+                    ),
+                  ),
+                  isExpanded: _expandedIndex == index,
+                ),
+              ],
+              expansionCallback: (int index, bool isExpanded) {
+                toggleAccordion(index); // Toggle the selected item
+              },
+            ),
+          );
+        },
+      ),
+    );
   }
 }
 
-Widget FaqContainer (faqList){
-   
-  return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        children: [
-          Text(
-            "faq",
-            style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          // Wrap the ListView with a SizedBox to give it a fixed height
-          SizedBox(
-            height: 300, // Set the desired height
-            child: ListView.builder(
-              itemCount: faqList.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(faqList[index].question),
-                  subtitle: Text(faqList[index].answer),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-}
-class FAQItem {
-  final String question;
-  final String answer;
+class Item {
+  Item({
+    required this.expandedValue,
+    required this.headerText,
+    required this.bodyText,
+  });
 
-  FAQItem({
-    required this.question,
-    required this.answer,
+  String expandedValue;
+  String headerText;
+  String bodyText;
+}
+
+List<Item> generateItems(int numberOfItems) {
+  return List<Item>.generate(numberOfItems, (int index) {
+    return Item(
+      headerText: 'Question ${index + 1}',
+      expandedValue: 'Answer to Question ${index + 1}',
+      bodyText: faqAnswer,
+    );
   });
 }
+
+
+
+
+

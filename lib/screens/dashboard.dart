@@ -89,7 +89,7 @@ class ByBackDashboard extends StatelessWidget {
               // SizedBox(
               //   height: 20,
               // ),
-              FAQPage()
+              FAQAccordion()
             ],
           ),
         ),
