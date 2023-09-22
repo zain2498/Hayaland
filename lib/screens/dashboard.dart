@@ -19,11 +19,11 @@ class ByBackDashboard extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              HeaderComponent(),
-              SizedBox(
+             const HeaderComponent(),
+              const SizedBox(
                 height: 40,
               ),
-              Row(
+             const  Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image(
@@ -39,57 +39,67 @@ class ByBackDashboard extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              Text(
+             const Text(
                 productInfo,
                 style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
               ),
-              Text(
+             const  Text(
                 productSubheading,
                 style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+             const SizedBox(
                 height: 25,
               ),
-              Text(
+             const Text(
                 productCategory,
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.left,
               ),
 
               // GridViewComponent()
-              SizedBox(
+             const SizedBox(
                 height: 25,
               ),
 
-              GridViewComponent(), //gridview component
+             const GridViewComponent(), //gridview component
               // CardViewComponent(),
 
-              SizedBox(
+              const SizedBox(
                 height: 35,
               ),
 
-              Text(
+              const Text(
                 productDetails,
                 style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
               ),
 
-              SizedBox(
+             const SizedBox(
                 height: 20,
               ),
 
-              BottomTabComponent(),
-              SizedBox(
+             const BottomTabComponent(),
+             const SizedBox(
                 height: 30,
               ), //bottom tab component
-              BuyBackInfoTab(),
+              const BuyBackInfoTab(),
              
-              // SizedBox(
-              //   height: 20,
-              // ),
-              FAQAccordion()
+             const SizedBox(
+                height: 10,
+              ),
+
+             const Text(
+                "FAQ",
+                style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.left,
+              ),
+
+              const SizedBox(
+                height: 10,
+              ),
+              FAQComponent()
             ],
           ),
         ),

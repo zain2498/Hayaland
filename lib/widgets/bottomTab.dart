@@ -1,5 +1,3 @@
-//import 'dart:js';
-
 import 'package:bybackproduct/colors.dart';
 import 'package:bybackproduct/constants.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +47,6 @@ Widget bottomTabBox(screenSize) {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 3.0),
@@ -96,9 +93,8 @@ Widget bottomTabBox(screenSize) {
     }
   }
 
-  return SingleChildScrollView(
-    scrollDirection: Axis.horizontal,
-    child: Container(
+  return Container(
+    //child: Container(
       width: screenSize,
       height: 60,
       decoration: const BoxDecoration(
@@ -114,7 +110,7 @@ Widget bottomTabBox(screenSize) {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: combinedItems,
       ),
-    ),
+   // ),
   );
 }
 

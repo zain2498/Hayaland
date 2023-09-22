@@ -46,8 +46,10 @@ Widget HeaderSection() {
             IconButton(onPressed: () {}, icon: const Icon(Icons.search))
           ],
         ),
+        SizedBox(height: 15,),
         Container(
             color: Colors.black,
+            height: 50,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
