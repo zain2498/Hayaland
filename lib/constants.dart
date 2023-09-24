@@ -21,15 +21,51 @@ const tradeInWorkAns = '''1.Get an offer from a professional refurbisher
   3.Get cash in your account ''';
 const offer = "what goes into an offer?";
 const offerAns = "Professional refurbishers make offers based on your device's condition and its current market vaslue. If you don't get an offer right away. You can always try agasin -- Trade-in offers depend on the masrket. so there's always round 2.";
+const txtIphone = "Iphone";
+const txtIpad = "Ipad";
+const txtIwatch = "Iwatch";
+const txtAirpods = "Airpods";
+const txtMacbook = "Macbook";
+
+
+//FAQ Question Answer
+const faq = "FAQ";
+
+const faqQues1 = "What is Flutter?";
+const faqAns1 = "Flutter is a mobile app development framework created by Google. It allows developers to build natively compiled applications for mobile, web, and desktop from a single codebase.";
+
+const faqQues2 = "What are the benefits of using Flutter?";
+const faqAns2 = "There are several benefits of using Flutter, including: fast development, expressive and flexible UI, hot reload, and good performance.";
+
+const faqQues3 = "Is Flutter only for mobile app development?";
+const faqAns3 = "No, Flutter can be used to develop applications for mobile, web, and desktop. It supports building for Android, iOS, web, and desktop platforms.";
+
+const faqQues4 = "Is Flutter only for Android and iOS?";
+const faqAns4 = "No, Flutter can be used to build applications for Android, iOS, web, and desktop. It has good support for all these platforms.";
+
+const faqQues5 = "Is Flutter only for small apps?";
+const faqAns5 = "No, Flutter can be used to build small as well as large and complex apps. It has the capabilities and performance to handle any size of app.";
+
+
+//FOOTER
+const footerTitle = "You can contact us on the below mentioned details";
+const txtCertified = "We are certified company";
+const txtShipment = "We offer free shipment";
+const txtLikeUs = "Give us your feedback";
+const txtCertifiedDetail = "We are certified company and you can also purchase your desired product with us";
+const txtShipmentDetail1 = "We will deliver the product at your doorstep without any cost";
+const txtSupportDetail = "For any query you can contact our team and we will entertain your query as soon as possible";
+const routeToSellerProd = "You can check our website by clicking here";
+
 //images name with definded path----
 const productLogo = "assets/images/brandmark-design.png";
 const brandLogo = "assets/images/brandmark-design-2.png";
-const faqAnswer = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
-          'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
-          'Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.';
-
 const iphone = "assets/images/iphone.png";
 const ipad = "assets/images/ipad.jpeg";
 const iwatch = "assets/images/iwatch.jpeg";
 const macbook = "assets/images/macbook.jpeg";
 const airpods = "assets/images/airpods.jpeg";
+const certifiedBadge = "assets/images/certifiedBadge.jpeg";
+const likeUs = "assets/images/likeUs.png";
+const imgShipment = "assets/images/shipment.png";
+const imgChecked = "assets/images/imgChecked.png";

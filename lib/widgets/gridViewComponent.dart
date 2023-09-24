@@ -12,27 +12,37 @@ class GridViewComponent extends StatefulWidget {
 class _GridViewComponentState extends State<GridViewComponent> {
   @override
   Widget build(BuildContext context) {
-    return itemsCategory(context);
+    return Container(
+             margin: const EdgeInsets.symmetric(vertical:8.0),
+          decoration: BoxDecoration(
+            color: silver,
+            border: Border.all(
+              color: silver,
+              width: 1.0
+            ),
+            borderRadius: BorderRadius.circular(12.0)
+          ),
+      child: itemsCategory(context));
   }
 }
 
 Widget itemsCategory(context) {
   return Container(
-    width: MediaQuery.of(context).size.width * 0.80,
-    color: silver, //const Color(0xFFF5F5F5),
+    width: MediaQuery.of(context).size.width * 0.70,
+   // color: silver, //const Color(0xFFF5F5F5),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(70, 70, 0, 0),
+          padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              WidgetBox(iphone),
+              WidgetBox(iphone,txtIphone),
               const SizedBox(width: 20,),
-              WidgetBox(ipad),
+              WidgetBox(ipad, txtIpad),
               const SizedBox(width: 20,),
-              WidgetBox(macbook),
+              WidgetBox(macbook, txtMacbook),
             ],
           ),
         ),
@@ -44,9 +54,9 @@ Widget itemsCategory(context) {
           child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              WidgetBox(iwatch),
+              WidgetBox(iwatch, txtIwatch),
              const SizedBox(width: 20,),
-              WidgetBox(airpods)
+              WidgetBox(airpods, txtAirpods)
             ],
           ),
         ),
@@ -55,28 +65,34 @@ Widget itemsCategory(context) {
   );
 }
 
-Widget WidgetBox(imageName) {
+Widget WidgetBox(imageName,gadgetName) {
   return Container(
     width: 250,
     height: 250,
-    decoration: const BoxDecoration(
+    margin: const EdgeInsets.symmetric(vertical: 8.0),
+    decoration:  BoxDecoration(
       color: Colors.white,
-      border: Border(
-        left: BorderSide(color: silver, width: 1.5),
-        right: BorderSide(color: silver, width: 1.5),
-        top: BorderSide(color: silver, width: 1.5),
-        bottom: BorderSide(color: silver, width: 1.5),
+      border: Border.all(
+        color: silver,
+        width: 1.0
       ),
+      borderRadius: BorderRadius.circular(15.0)
+      //),
     ),
     child: Padding(
       padding: const EdgeInsets.all(15.0),
-      child: Expanded(
+      child: Column(
+        children: [
+          Text(gadgetName),
+          Expanded(
                     child: Image.asset(
                       imageName, height: 200,
                      width: 200,
                       fit: BoxFit.contain
                       ),
                   ),
+        ],
+      )
     ),
   );
 }

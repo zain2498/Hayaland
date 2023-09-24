@@ -2,6 +2,7 @@
 import 'package:bybackproduct/widgets/bottomTab.dart';
 import 'package:bybackproduct/widgets/buyBackInfoComponent.dart';
 import 'package:bybackproduct/widgets/faq.dart';
+import 'package:bybackproduct/widgets/footer.dart';
 // import 'package:bybackproduct/widgets/cardViewComponent.dart';
 import 'package:bybackproduct/widgets/gridViewComponent.dart';
 import 'package:flutter/material.dart';
@@ -14,16 +15,16 @@ class ByBackDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-             const HeaderComponent(),
-              const SizedBox(
+              HeaderComponent(),   //header component
+              SizedBox(
                 height: 40,
               ),
-             const  Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image(
@@ -39,67 +40,72 @@ class ByBackDashboard extends StatelessWidget {
                   )
                 ],
               ),
-              const SizedBox(
+              SizedBox(
                 height: 30,
               ),
-             const Text(
+              Text(
                 productInfo,
                 style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
               ),
-             const  Text(
+              Text(
                 productSubheading,
                 style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
               ),
-             const SizedBox(
+              SizedBox(
                 height: 25,
               ),
-             const Text(
+              Text(
                 productCategory,
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.left,
               ),
 
               // GridViewComponent()
-             const SizedBox(
+              SizedBox(
                 height: 25,
               ),
 
-             const GridViewComponent(), //gridview component
+              GridViewComponent(), //gridview component
               // CardViewComponent(),
 
-              const SizedBox(
+              SizedBox(
                 height: 35,
               ),
 
-              const Text(
+              Text(
                 productDetails,
                 style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
               ),
 
-             const SizedBox(
+              SizedBox(
                 height: 20,
               ),
 
-             const BottomTabComponent(),
-             const SizedBox(
+              BottomTabComponent(),    //bottom tab component
+              SizedBox(
                 height: 30,
               ), //bottom tab component
-              const BuyBackInfoTab(),
-             
-             const SizedBox(
-                height: 10,
+              BuyBackInfoTab(),   //buy back info tab
+
+              SizedBox(
+                height: 20,
               ),
 
-             const Text(
-                "FAQ",
+              Text(
+                faq,
                 style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.left,
               ),
 
-              const SizedBox(
+              SizedBox(
                 height: 10,
               ),
-              FAQComponent()
+              FAQComponent(),   //faq component
+              SizedBox(
+                height: 20,
+              ),
+                customFooter(),     //custom footer
+                SizedBox(height: 40,)
             ],
           ),
         ),

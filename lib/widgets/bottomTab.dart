@@ -12,7 +12,7 @@ class BottomTabComponent extends StatefulWidget {
 class _BottomTabComponentState extends State<BottomTabComponent> {
   @override
   Widget build(BuildContext context) {
-    double screenSize = MediaQuery.of(context).size.width * 0.97;
+    double screenSize = MediaQuery.of(context).size.width * 0.95;
     return bottomTabBox(screenSize);
   }
 }

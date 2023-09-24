@@ -16,145 +16,97 @@ class _BuyBackInfoTabState extends State<BuyBackInfoTab> {
     double width = MediaQuery.of(context).size.width * 0.95;
     double height = MediaQuery.of(context).size.height * 0.9;
 
-    return infoTab(width, height);
-  }
-
-  Widget infoTab(width, height) {
     return Container(
       width: width,
       height: height,
-      color: silver,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          //child number 1
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Expanded(
-                // Wrap with Expanded to distribute space
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 6.0),
-                      child: Text(
-                        backMarketTrade,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 8.0),
-                      child: Text(
-                        backMarketTradeAns,
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: timesNewRoman,
-                          color: Colors.black,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Image.asset(iphone, fit: BoxFit.contain),
-            ],
-          ),
+      
+      decoration: BoxDecoration(
+        color: silver,
+        border: Border.all(
+          color: silver,
+          width: 1.0
 
-          //child number 2
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Image.asset(iphone, fit: BoxFit.contain),
-              const Expanded(
-                // Wrap with Expanded to distribute space
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(right: 6.0),
-                      child: Text(
-                        tradeInWork,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 8.0),
-                      child: Text(
-                        tradeInWorkAns,
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: timesNewRoman,
-                          color: Colors.black,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              //Image.asset(iphone, fit: BoxFit.contain),
-            ],
-          ),
-
-          //child number 3
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Expanded(
-                // Wrap with Expanded to distribute space
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 6.0),
-                      child: Text(
-                        offer,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 8.0),
-                      child: Text(
-                        offerAns,
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: timesNewRoman,
-                          color: Colors.black,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Image.asset(iphone, fit: BoxFit.contain),
-            ],
-          ),
-        ],
+        ),
+        borderRadius: BorderRadius.circular(20)
       ),
+      child: infoTab(),
     );
   }
+
+  Widget infoTab() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        //child number 1
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            rowWidget(backMarketTrade, backMarketTradeAns),
+            Image.asset(iphone, fit: BoxFit.contain),
+          ],
+        ),
+
+        //child number 2
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Image.asset(iphone, fit: BoxFit.contain),
+            rowWidget(tradeInWork, tradeInWorkAns)
+          ],
+        ),
+
+        //child number 3
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            rowWidget(offer,offerAns),
+            Image.asset(iphone, fit: BoxFit.contain),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+//dynamic widget for all the three campaigns
+Widget rowWidget(txt1,txt2){
+  return Container(
+    width: 500,
+    child: Expanded(
+           // Wrap with Expanded to distribute space
+           child: Column(
+             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+             children: [
+               Text(
+                 txt1,
+                 style: const TextStyle(
+                   fontSize: 15,
+                   fontWeight: FontWeight.bold,
+                   color: Colors.black,
+                 ),
+                 textAlign: TextAlign.justify,
+               ),
+               const SizedBox(
+                 height: 5,
+               ),
+               Container(
+                margin: const EdgeInsets.only(left: 18.0),
+                width: 350,
+                 child: Padding(
+                   padding:  const EdgeInsets.only(left: 8.0),
+                   child: Text(
+                     txt2,
+                     style: const TextStyle(
+                       fontSize: 12,
+                       fontFamily: timesNewRoman,
+                       color: Colors.black,
+                     ),
+                     textAlign: TextAlign.justify,
+                   ),
+                 ),
+               ),
+             ],
+           ),
+         ),
+  );
 }
