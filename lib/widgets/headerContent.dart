@@ -46,7 +46,7 @@ Widget HeaderSection() {
             IconButton(onPressed: () {}, icon: const Icon(Icons.search))
           ],
         ),
-        SizedBox(height: 15,),
+        const SizedBox(height: 15,),
         Container(
             color: Colors.black,
             height: 50,
@@ -76,8 +76,20 @@ Widget buildTextField(String fieldName) {
   return Container(
       color: Colors.black,
       child: Container(
-          child: Text(
+      //     child: Text(
+      //   fieldName,
+      //   style: const TextStyle(color: Colors.white),
+      // )
+      child: TextButton(
+       onPressed: () {  },
+       child: Text(
         fieldName,
-        style: const TextStyle(color: Colors.white),
-      )));
+        style: const TextStyle(
+          color: Colors.white
+        ),
+       ), 
+        ),
+      ),
+      );
+      
 }

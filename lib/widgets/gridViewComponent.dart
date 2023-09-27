@@ -20,7 +20,7 @@ class _GridViewComponentState extends State<GridViewComponent> {
               color: silver,
               width: 1.0
             ),
-            borderRadius: BorderRadius.circular(12.0)
+            borderRadius: BorderRadius.circular(20.0)
           ),
       child: itemsCategory(context));
   }
@@ -28,7 +28,7 @@ class _GridViewComponentState extends State<GridViewComponent> {
 
 Widget itemsCategory(context) {
   return Container(
-    width: MediaQuery.of(context).size.width * 0.70,
+    width: MediaQuery.of(context).size.width * 0.75,
    // color: silver, //const Color(0xFFF5F5F5),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -76,7 +76,7 @@ Widget WidgetBox(imageName,gadgetName) {
         color: silver,
         width: 1.0
       ),
-      borderRadius: BorderRadius.circular(15.0)
+      borderRadius: BorderRadius.circular(20.0)
       //),
     ),
     child: Padding(

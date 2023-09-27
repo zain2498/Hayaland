@@ -1,178 +1,272 @@
-import 'package:bybackproduct/colors.dart';
-import 'package:bybackproduct/constants.dart';
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
+// import 'package:bybackproduct/constants.dart';
 
-class customFooter extends StatefulWidget {
-  const customFooter({super.key});
-
-  @override
-  State<customFooter> createState() => _customFooterState();
-}
-
-class _customFooterState extends State<customFooter> {
-  @override
-  Widget build(BuildContext context) {
-    double widget = MediaQuery.of(context).size.width * 0.85;
-    double height = MediaQuery.of(context).size.height * 0.7;
-    return SingleChildScrollView(child: FooterWidget(widget, height));
-  }
-}
-
-Widget FooterWidget(Width, height) {
-  return Container(
-    width: Width,
-    height: height,
-    //  color: Color.fromARGB(255, 230, 99, 143),//lightPink,
-    margin: const EdgeInsets.symmetric(vertical: 6.0),
-    decoration: BoxDecoration(
-        color: lightPink,
-        border: Border.all(
-          color: silver,
-          width: 1.0,
-        ),
-        borderRadius: BorderRadius.circular(18.0)),
-    child: Column(
-      children: [
-        const Padding(
-          padding: EdgeInsets.fromLTRB(20, 50, 20, 50),
-          child: Text(
-            footerTitle,
-            style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.left,
-          ),
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [imageWidget(), labelWidget()],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            textboxWidget(txtCertifiedDetail),
-            textboxWidget(txtShipmentDetail1),
-            textboxWidget(txtSupportDetail),
-          ],
-        ),
-        SizedBox(height: 15,),
-        Container(
-          width: 500,
-          margin: const EdgeInsets.symmetric(vertical: 6.0),
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: silver,
-              width: 1.0
-            ),
-            borderRadius: BorderRadius.circular(35)
-          ),
-          child: ElevatedButton(
-            onPressed: () {
-              // Add your button click logic here
-            },
-              style: ElevatedButton.styleFrom(
-    primary: lightReddish, // Change the background color here
-  ),
-            child: const Text(routeToSellerProd, style: TextStyle(
-              color: Colors.white
-            ),),
-          ),
-        )
-      ],
-    ),
-  );
-}
-
-Widget imageWidget() {
-  return Padding(
-    padding: const EdgeInsets.all(5.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        imageDecor(certifiedBadge),
-        imageDecor(imgShipment),
-        imageDecor(likeUs)
-      ],
-    ),
-  );
-}
-
-Widget imageDecor(imgName) {
-  return Container(
-      alignment: Alignment.center,
-      child: Image.asset(
-        imgName,
-        width: 70,
-        height: 70,
-        fit: BoxFit.contain,
-      ));
-}
-
-Widget labelWidget() {
-  return Container(
-    width: 900,
-    child: Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          LablDecor(txtCertified),
-          LablDecor(txtShipment),
-          LablDecor(txtLikeUs),
-        ],
-      ),
-    ),
-  );
-}
-
-Widget LablDecor(txtName) {
-  return Container(
-      width: 280,
-      height: 45,
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(
-            color: silver,
-            width: 1.0,
-          ),
-          borderRadius: BorderRadius.circular(30)),
-      padding: const EdgeInsets.all(12.0),
-      child: Text(
-        txtName,
-        textAlign: TextAlign.center,
-      ));
-}
-
-// Widget textboxWidget(txt){
-//   return Container(
-//     width: 100,
-//     height: 500,
-//     child: Row(
-//       children: [
-//         Image.asset(imgChecked, width: 15, height: 15, fit: BoxFit.contain,),
-//        const SizedBox(width: 5,),
-//          Expanded(child: Text(txt)),
-//       ],
-//     ),
-//   );
+// class FooterComponent extends StatefulWidget {
+//   @override
+//   State<FooterComponent> createState() => _FooterComponentState();
 // }
 
-Widget textboxWidget(txt) {
-  return Container(
-    width: 150,
-    height: 100, // Adjust the height to fit your design
-    child: Row(
+// class _FooterComponentState extends State<FooterComponent> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       color: Colors.black,
+//       child: Column(
+//         children: [
+//           informativeTextWidget(),
+//           // Add other widgets as needed
+//         ],
+//       ),
+//     );
+//   }
+
+//   // //Guide us
+//   var guide_Us = [
+//     userGuide,
+//     abtPayment,
+//     regardingDelivery,
+//     abtTheProduct,
+//     abtReturns
+//   ];
+
+//   var company_Infomation = [
+//     abtUs,
+//     businessContent,
+//     sustainability,
+//     recruitmentInfo,
+//     companyProfie
+//   ];
+
+//   var customer_Support = [faq, indCustomer];
+
+//   Widget informativeTextWidget() {
+//     return Padding(
+//       padding: const EdgeInsets.all(8.0),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//         children: [
+//           textWidget(guide_Us, "Guide Us"),
+//           textWidget(company_Infomation, "Company Information"),
+//           textWidget(customer_Support, "Customer Support"),
+//           emailWidget()
+//         ],
+//       ),
+//     );
+//   }
+
+//   Widget textWidget(List<String> items, String title) {
+//     return Column(
+//       children: [
+//         Text(
+//           title,
+//           style: const TextStyle(fontSize: 15, color: Colors.white),
+//         ),
+//         const SizedBox(
+//           height: 10,
+//         ),
+//         Column(
+//           children: items
+//               .map(
+//                 (item) => TextButton(
+//                   onPressed: () {},
+//                   child: Text(
+//                     item,
+//                     style: const TextStyle(color: Colors.white, fontSize: 15),
+//                   ),
+//                 ),
+//               )
+//               .toList(),
+//         )
+//       ],
+//     );
+//   }
+
+//   Widget emailWidget() {
+//     return Column(
+//       children: [
+//         Container(
+//           width: 370,
+//           height: 100,
+//           child: const Padding(
+//             padding: EdgeInsets.all(1.0),
+//             child: Text(
+//               signUp,
+//               style: TextStyle(
+//                 color: Colors.white,
+//                 fontSize: 15,
+//               ),
+//             ),
+//           ),
+//         ),
+//         Row(
+//           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//           children: [
+//             Container(
+//                 margin: const EdgeInsets.symmetric(vertical: 8.0),
+//                 width: 170,
+//                 height: 40,
+//                 child: const TextField(
+//                   decoration: InputDecoration(
+//                       hintText: emailAddress,
+//                       filled: true,
+//                       fillColor: Colors.white,
+//                       border: OutlineInputBorder()),
+//                 )),
+//                 ElevatedButton(
+//                   onPressed: (){}, 
+//                 style: ElevatedButton.styleFrom(
+//                   primary: Colors.white,
+//                   onPrimary: Colors.black,
+//                   padding: const  EdgeInsets.all(16.0)
+//                 ),
+//                 child: const Text(btnReg),
+//                 )
+//           ],
+//         )
+//       ],
+//     );
+//   }
+
+// }
+
+
+import 'package:flutter/material.dart';
+import 'package:bybackproduct/constants.dart';
+
+class FooterComponent extends StatefulWidget {
+  @override
+  State<FooterComponent> createState() => _FooterComponentState();
+}
+
+class _FooterComponentState extends State<FooterComponent> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.black,
+      child: Column(
+        children: [
+          informativeTextWidget(),
+          // Add other widgets as needed
+        ],
+      ),
+    );
+  }
+
+  var guide_Us = [
+    userGuide,
+    abtPayment,
+    regardingDelivery,
+    abtTheProduct,
+    abtReturns
+  ];
+
+  var company_Infomation = [
+    abtUs,
+    businessContent,
+    sustainability,
+    recruitmentInfo,
+    companyProfie
+  ];
+
+  var customer_Support = [faq, indCustomer];
+
+  Widget informativeTextWidget() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              textWidget(guide_Us, "Guide Us"),
+              textWidget(company_Infomation, "Company Information"),
+              const SizedBox(height: 100,),
+              textWidget(customer_Support, "Customer Support"),
+              const SizedBox(height: 10,),
+              emailWidget(),
+            ],
+          ),
+          // const SizedBox(
+          //   height: 10, // Adjust this value to control the gap
+          // ),
+          
+        ],
+      ),
+    );
+  }
+
+  Widget textWidget(List<String> items, String title) {
+    return Column(
       children: [
-        Image.asset(
-          imgChecked,
-          width: 15,
-          height: 15,
-          fit: BoxFit.contain,
+        Text(
+          title,
+          style: const TextStyle(fontSize: 15, color: Colors.white),
         ),
         const SizedBox(
-          width: 5,
+          height: 10, // Adjust this value to control the gap
         ),
-        Expanded(child: Text(txt)),
+        Column(
+          children: items
+              .map(
+                (item) => TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    item,
+                    style: const TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ),
+              )
+              .toList(),
+        )
       ],
-    ),
-  );
+    );
+  }
+
+  Widget emailWidget() {
+    return Column(
+      children: [
+        Container(
+          width: 370,
+          height: 100,
+          child: const Padding(
+            padding: EdgeInsets.all(1.0),
+            child: Text(
+              signUp,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+              ),
+            ),
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 8.0),
+              width: 170,
+              height: 40,
+              child: const TextField(
+                decoration: InputDecoration(
+                  hintText: emailAddress,
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                onPrimary: Colors.black,
+                padding: const EdgeInsets.all(16.0),
+              ),
+              child: const Text(btnReg),
+            )
+          ],
+        )
+      ],
+    );
+  }
 }
