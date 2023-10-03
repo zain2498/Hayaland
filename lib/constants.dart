@@ -1,5 +1,6 @@
 
 //constants defined here
+const productTitle = "Hayaland";
 const byBack = "Buyback";
 const productInfo  = "Hello and Welcome to our Buyback product";
 const productSubheading  = "Your Device, onto new value";
@@ -78,6 +79,7 @@ const footerDesc = "Description based on Specified Commercial Transactions Law a
 
 //images name with definded path----
 const productLogo = "assets/images/brandmark-design.png";
+const productLogoNoBckground = "assets/images/brandmark-design-removebg-preview.png";
 const brandLogo = "assets/images/brandmark-design-2.png";
 const iphone = "assets/images/iphone.png";
 const ipad = "assets/images/ipad.jpeg";
@@ -88,3 +90,6 @@ const certifiedBadge = "assets/images/certifiedBadge.jpeg";
 const likeUs = "assets/images/likeUs.png";
 const imgShipment = "assets/images/shipment.png";
 const imgChecked = "assets/images/imgChecked.png";
+const twitterLogo = "assets/images/twitterLogo.png";
+const facebookLogo = "assets/images/facebookLogo.png";
+const instaLogo = "assets/images/instaLogo.png";

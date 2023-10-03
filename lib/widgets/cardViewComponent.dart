@@ -12,6 +12,7 @@ class CardViewComponent extends StatefulWidget {
 class _CardViewComponentState extends State<CardViewComponent> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width * 0.75;
     return createCardView();
   }
 }
@@ -70,3 +71,7 @@ Widget createCardView() {
     ),
   );
 }
+
+
+
+

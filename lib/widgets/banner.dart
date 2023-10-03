@@ -43,19 +43,19 @@ Widget BannerWidget(Width, height) {
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [imageWidget(), labelWidget()],
+          children: [imageWidget(Width, height), labelWidget(Width,height)],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            textboxWidget(txtCertifiedDetail),
-            textboxWidget(txtShipmentDetail1),
-            textboxWidget(txtSupportDetail),
+            textboxWidget(txtCertifiedDetail,Width,height),
+            textboxWidget(txtShipmentDetail1,Width,height),
+            textboxWidget(txtSupportDetail,Width,height),
           ],
         ),
-        SizedBox(height: 60,),
+       const SizedBox(height: 60,),
         Container(
-          width: 500,
+          width: Width*0.9,
           margin: const EdgeInsets.symmetric(vertical: 6.0),
           decoration: BoxDecoration(
             border: Border.all(
@@ -81,22 +81,23 @@ Widget BannerWidget(Width, height) {
   );
 }
 
-Widget imageWidget() {
+Widget imageWidget(width,height) {
   return Padding(
     padding: const EdgeInsets.all(5.0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        imageDecor(certifiedBadge),
-        imageDecor(imgShipment),
-        imageDecor(likeUs)
+        imageDecor(certifiedBadge,width),
+        imageDecor(imgShipment,width),
+        imageDecor(likeUs,width)
       ],
     ),
   );
 }
 
-Widget imageDecor(imgName) {
+Widget imageDecor(imgName,width) {
   return Container(
+    // width: width*0.01,
       alignment: Alignment.center,
       child: Image.asset(
         imgName,
@@ -106,7 +107,7 @@ Widget imageDecor(imgName) {
       ));
 }
 
-Widget labelWidget() {
+Widget labelWidget(width,height) {
   return Container(
     width: 900,
     child: Padding(
@@ -114,19 +115,19 @@ Widget labelWidget() {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          LablDecor(txtCertified),
-          LablDecor(txtShipment),
-          LablDecor(txtLikeUs),
+          LablDecor(txtCertified, width,height),
+          LablDecor(txtShipment,width,height),
+          LablDecor(txtLikeUs,width,height),
         ],
       ),
     ),
   );
 }
 
-Widget LablDecor(txtName) {
+Widget LablDecor(txtName,width, height) {
   return Container(
-      width: 280,
-      height: 45,
+      width: width *0.28,
+      height: width <500 ? 22 : 45,
       margin: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
           color: Colors.white,
@@ -138,28 +139,15 @@ Widget LablDecor(txtName) {
       padding: const EdgeInsets.all(12.0),
       child: Text(
         txtName,
-        textAlign: TextAlign.center,
+        textAlign: width < 400 ? TextAlign.right : TextAlign.center,
       ));
 }
 
-// Widget textboxWidget(txt){
-//   return Container(
-//     width: 100,
-//     height: 500,
-//     child: Row(
-//       children: [
-//         Image.asset(imgChecked, width: 15, height: 15, fit: BoxFit.contain,),
-//        const SizedBox(width: 5,),
-//          Expanded(child: Text(txt)),
-//       ],
-//     ),
-//   );
-// }
 
-Widget textboxWidget(txt) {
+Widget textboxWidget(txt,width,height) {
   return Container(
-    width: 150,
-    height: 100, // Adjust the height to fit your design
+    width: width *0.25,
+    height: height *0.15, // Adjust the height to fit your design
     child: Row(
       children: [
         Image.asset(

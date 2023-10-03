@@ -54,7 +54,7 @@
 //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 //           children: [
 //             Image.asset(iphone,height: height*0.02, width: width*0.02, fit: BoxFit.contain),
-//             rowWidget(tradeInWork, tradeInWorkAns)
+//             rowWidget(tradeInWork, tradeInWorkAns,width)
 //           ],
 //         ),
 
@@ -62,7 +62,7 @@
 //         Row(
 //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 //           children: [
-//             rowWidget(offer,offerAns),
+//             rowWidget(offer,offerAns,width),
 //             Image.asset(iphone,height: height*0.02, width: width*0.02,fit:BoxFit.contain),
 //           ],
 //         ),
@@ -129,6 +129,7 @@ class BuyBackInfoTab extends StatefulWidget {
 class _BuyBackInfoTabState extends State<BuyBackInfoTab> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width*0.9;
     return LayoutBuilder(
       builder: (context, constraints) {
         double containerWidth = constraints.maxWidth * 0.77;
@@ -149,7 +150,7 @@ class _BuyBackInfoTabState extends State<BuyBackInfoTab> {
                   ),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: infoTab(),
+                child: infoTab(width),
               ),
             ],
           ),
@@ -158,7 +159,7 @@ class _BuyBackInfoTabState extends State<BuyBackInfoTab> {
     );
   }
 
-  Widget infoTab() {
+  Widget infoTab(width) {
     return Padding(
       padding: const EdgeInsets.all(55.0),
       child: Column(
@@ -167,7 +168,7 @@ class _BuyBackInfoTabState extends State<BuyBackInfoTab> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              rowWidget(backMarketTrade, backMarketTradeAns),
+              rowWidget(backMarketTrade, backMarketTradeAns,width),
               Image.asset(iphone, height: 150, width: 150, fit: BoxFit.contain),
             ],
           ),
@@ -177,7 +178,7 @@ class _BuyBackInfoTabState extends State<BuyBackInfoTab> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Image.asset(iphone, height: 150, width: 150, fit: BoxFit.contain),
-              rowWidget(tradeInWork, tradeInWorkAns),
+              rowWidget(tradeInWork, tradeInWorkAns,width),
             ],
           ),
     
@@ -185,7 +186,7 @@ class _BuyBackInfoTabState extends State<BuyBackInfoTab> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              rowWidget(offer, offerAns),
+              rowWidget(offer, offerAns,width),
               Image.asset(iphone, height: 150, width: 150, fit: BoxFit.contain),
             ],
           ),
@@ -194,9 +195,9 @@ class _BuyBackInfoTabState extends State<BuyBackInfoTab> {
     );
   }
 
-  Widget rowWidget(txt1, txt2) {
+  Widget rowWidget(txt1, txt2,width) {
     return Container(
-      width: 250,
+      width: width *0.25,
       child: Column(
         children: [
           Text(

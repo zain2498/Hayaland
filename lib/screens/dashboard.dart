@@ -11,7 +11,6 @@ import 'package:bybackproduct/widgets/gridViewComponent.dart';
 import 'package:flutter/material.dart';
 import 'package:bybackproduct/widgets/headerContent.dart';
 import 'package:bybackproduct/constants.dart';
-import 'package:flutter/rendering.dart';
 // import 'package:bybackproduct/widgets/gridViewComponent.dart';
 
 class ByBackDashboard extends StatelessWidget {
@@ -33,104 +32,112 @@ class ByBackDashboard extends StatelessWidget {
     
         return 
          Scaffold(
-          body: SingleChildScrollView(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  HeaderComponent(),   //header component
-                  SizedBox(
-                    height: 50,
+          body: Column(
+            children: [
+              const HeaderComponent(),   
+              Expanded(
+                child: SingleChildScrollView(
+                  // controller: ,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        //header component
+                       const  SizedBox(
+                          height: 50,
+                        ),
+                      const   Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image(
+                              image: AssetImage(brandLogo),
+                              width: 35,
+                            ),
+                            Text(
+                              byBack,
+                              style: TextStyle(
+                                  fontSize: 40,
+                                  fontFamily: 'Raleway',
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
+                      const   SizedBox(
+                          height: 10,
+                        ),
+                       const Text(
+                          productInfo,
+                          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                        ),
+                       const Text(
+                          productSubheading,
+                          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                        ),
+                       const SizedBox(
+                          height: 100,
+                        ),
+                       const Text(
+                          productCategory,
+                          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.left,
+                        ),
+                  
+                        // GridViewComponent()
+                        const SizedBox(
+                          height: 25,
+                        ),
+                  
+                      const  GridViewComponent(), //gridview component
+                        // CardViewComponent(),
+                  
+                       const  SizedBox(
+                          height: 50,
+                        ),
+                  
+                      const   Text(
+                          productDetails,
+                          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                        ),
+                  
+                       const  SizedBox(
+                          height: 20,
+                        ),
+                  
+                      const   BottomTabComponent(),    //bottom tab component
+                  
+                       const  SizedBox(
+                          height: 50,
+                        ), //bottom tab component
+                       const  BuyBackInfoTab(),   //buy back info tab
+                  
+                      const   SizedBox(
+                          height: 50,
+                        ),
+                  
+                      const   Text(
+                          faqTitle,
+                          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.left,
+                        ),
+                  
+                      const   SizedBox(
+                          height: 10,
+                        ),
+                      const   FAQComponent(),   //faq component
+                  
+                      const   SizedBox(
+                          height: 50,
+                        ),
+                        const  bannerComponent(),     //custom footer
+                        const   SizedBox(height: 40,),
+              
+                          FooterComponent()
+                      ],
+                    ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image(
-                        image: AssetImage(brandLogo),
-                        width: 35,
-                      ),
-                      Text(
-                        byBack,
-                        style: TextStyle(
-                            fontSize: 40,
-                            fontFamily: 'Raleway',
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    productInfo,
-                    style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    productSubheading,
-                    style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: 100,
-                  ),
-                  Text(
-                    productCategory,
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.left,
-                  ),
-            
-                  // GridViewComponent()
-                  SizedBox(
-                    height: 25,
-                  ),
-            
-                  GridViewComponent(), //gridview component
-                  // CardViewComponent(),
-            
-                  SizedBox(
-                    height: 50,
-                  ),
-            
-                  Text(
-                    productDetails,
-                    style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-                  ),
-            
-                  SizedBox(
-                    height: 20,
-                  ),
-            
-                  BottomTabComponent(),    //bottom tab component
-            
-                  SizedBox(
-                    height: 50,
-                  ), //bottom tab component
-                  BuyBackInfoTab(),   //buy back info tab
-            
-                  SizedBox(
-                    height: 50,
-                  ),
-            
-                  Text(
-                    faqTitle,
-                    style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.left,
-                  ),
-            
-                  SizedBox(
-                    height: 10,
-                  ),
-                  FAQComponent(),   //faq component
-            
-                  SizedBox(
-                    height: 50,
-                  ),
-                    bannerComponent(),     //custom footer
-                    SizedBox(height: 40,),
-
-                    FooterComponent()
-                ],
+                ),
               ),
-            ),
+            ],
           ),
         );
       }
