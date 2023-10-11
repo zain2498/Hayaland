@@ -33,11 +33,11 @@ Widget BannerWidget(Width, height) {
         borderRadius: BorderRadius.circular(18.0)),
     child: Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.fromLTRB(20, 50, 20, 50),
+         Padding(
+          padding: const EdgeInsets.fromLTRB(20, 50, 20, 50),
           child: Text(
             bannerTitle,
-            style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: Width <500 ? 20 : 35, fontWeight: FontWeight.bold),
             textAlign: TextAlign.left,
           ),
         ),
@@ -127,7 +127,7 @@ Widget labelWidget(width,height) {
 Widget LablDecor(txtName,width, height) {
   return Container(
       width: width *0.28,
-      height: width <500 ? 22 : 45,
+      height: width <500 ? 55 : 45,
       margin: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
           color: Colors.white,
@@ -139,7 +139,11 @@ Widget LablDecor(txtName,width, height) {
       padding: const EdgeInsets.all(12.0),
       child: Text(
         txtName,
-        textAlign: width < 400 ? TextAlign.right : TextAlign.center,
+        textAlign: width < 400 ? TextAlign.start: TextAlign.center,
+        style: TextStyle(
+          fontSize: width < 400 ? -10 : 12,
+          fontFamily: "sans-serief"
+        ),
       ));
 }
 

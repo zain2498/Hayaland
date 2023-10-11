@@ -19,6 +19,7 @@ class ByBackDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height * 0.99;
+    double width = MediaQuery.of(context).size.width * 0.99;
     return  LayoutBuilder(
       builder: (context, constraints) {
             // Use constraints to make responsive decisions
@@ -46,7 +47,7 @@ class ByBackDashboard extends StatelessWidget {
                        const  SizedBox(
                           height: 50,
                         ),
-                      const   Row(
+                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image(
@@ -56,7 +57,7 @@ class ByBackDashboard extends StatelessWidget {
                             Text(
                               byBack,
                               style: TextStyle(
-                                  fontSize: 40,
+                                  fontSize: width <500 ? 20 : 40,
                                   fontFamily: 'Raleway',
                                   fontWeight: FontWeight.bold),
                             )
@@ -65,13 +66,13 @@ class ByBackDashboard extends StatelessWidget {
                       const   SizedBox(
                           height: 10,
                         ),
-                       const Text(
+                        Text(
                           productInfo,
-                          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                          style: TextStyle(fontSize: width <500 ? 20 :35, fontWeight: FontWeight.bold),
                         ),
-                       const Text(
+                        Text(
                           productSubheading,
-                          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                          style: TextStyle(fontSize: width <500 ? 20 : 35, fontWeight: FontWeight.bold),
                         ),
                        const SizedBox(
                           height: 100,
@@ -94,9 +95,9 @@ class ByBackDashboard extends StatelessWidget {
                           height: 50,
                         ),
                   
-                      const   Text(
+                         Text(
                           productDetails,
-                          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                          style: TextStyle(fontSize: width <500 ? 20 : 35, fontWeight: FontWeight.bold),
                         ),
                   
                        const  SizedBox(
@@ -131,7 +132,7 @@ class ByBackDashboard extends StatelessWidget {
                         const  bannerComponent(),     //custom footer
                         const   SizedBox(height: 40,),
               
-                          FooterComponent()
+                         FooterComponent()
                       ],
                     ),
                   ),
