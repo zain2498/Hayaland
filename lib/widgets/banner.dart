@@ -151,7 +151,7 @@ Widget LablDecor(txtName,width, height) {
 Widget textboxWidget(txt,width,height) {
   return Container(
     width: width *0.25,
-    height: height *0.15, // Adjust the height to fit your design
+    height: height *0.25, // Adjust the height to fit your design
     child: Row(
       children: [
         Image.asset(

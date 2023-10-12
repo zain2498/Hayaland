@@ -83,8 +83,11 @@ const productLogoNoBckground = "assets/images/brandmark-design-removebg-preview.
 const brandLogo = "assets/images/brandmark-design-2.png";
 const iphone = "assets/images/iphone.png";
 const ipad = "assets/images/ipad.jpeg";
+const ipad2 = "assets/images/ipad2.png";
 const iwatch = "assets/images/iwatch.jpeg";
 const macbook = "assets/images/macbook.jpeg";
+const macbook2 = "assets/images/macbook2.png";
+
 const airpods = "assets/images/airpods.jpeg";
 const certifiedBadge = "assets/images/certifiedBadge.jpeg";
 const likeUs = "assets/images/likeUs.png";

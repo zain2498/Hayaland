@@ -50,7 +50,7 @@ class ByBackDashboard extends StatelessWidget {
                          Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image(
+                           const Image(
                               image: AssetImage(brandLogo),
                               width: 35,
                             ),
